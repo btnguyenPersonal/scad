@@ -236,7 +236,7 @@ for (i = [0 : 7]) {
                     y + 24,
                     h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 31
                 ])
-                rotate([-5, 50, 0])
+                rotate([-10, 50, 0])
                 cube([30, 45, 16], center=true);
 
                 color(c)
