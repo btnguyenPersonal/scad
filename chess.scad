@@ -10,8 +10,8 @@ heightRookBase = 10;
 heightKnight = 30;
 heightKnightNeck = 5;
 heightKnightBase = 10;
-heightKnightCrown = 40;
-heightKnightSlit = 3;
+heightKnightHeadThickness = 18;
+heightKnightHead = 60;
 heightBishop = 63;
 heightBishopNeck = 5;
 heightBishopBase = 10;
@@ -112,6 +112,187 @@ for (i = [0 : 7]) {
             color(c)
             translate([x, y, h + heightKnight])
             cylinder(h=heightKnightNeck, r=sizePiece/2);
+            difference() {
+                union() {
+                    color(c)
+                    translate([x, y, h + heightKnight + heightKnightNeck])
+                    rotate_extrude(angle=360)
+                    polygon(points=[
+                        [sizePiece / 3, 0],
+                        [sizePiece / 2, heightKnightHead * 0.2],
+                        [sizePiece / 2.2, heightKnightHead * 0.3],
+                        [sizePiece / 2.6, heightKnightHead * 0.45],
+                        [sizePiece / 3.2, heightKnightHead * 0.5],
+                    ]);
+                    color(c)
+                    translate([x, y + 3, h + heightKnight + heightKnightNeck])
+                    rotate_extrude(angle=360)
+                    polygon(points=[
+                        [0, heightKnightHead * 0.45],
+                        [sizePiece / 2, heightKnightHead * 0.45],
+                        [sizePiece / 2.5, heightKnightHead * 1],
+                    ]);
+                }
+                color(c)
+                translate([
+                    x,
+                    y + heightKnightHead / 2 - heightKnightHeadThickness / 2,
+                    h + heightKnight + heightKnightNeck + heightKnightHead / 2 + heightKnightHead * 0.4
+                ])
+                cube([heightKnightHead, heightKnightHead, heightKnightHead], center=true);
+                color(c)
+                translate([
+                    x - heightKnightHead / 2 - heightKnightHeadThickness / 2,
+                    y,
+                    h + heightKnight + heightKnightNeck + heightKnightHead / 2 + heightKnightHead * 0.4
+                ])
+                cube([heightKnightHead, heightKnightHead, heightKnightHead], center=true);
+                color(c)
+                translate([
+                    x + heightKnightHead / 2 + heightKnightHeadThickness / 2,
+                    y,
+                    h + heightKnight + heightKnightNeck + heightKnightHead / 2 + heightKnightHead * 0.4
+                ])
+                cube([heightKnightHead, heightKnightHead, heightKnightHead], center=true);
+            }
+            color(c)
+            translate([
+                x,
+                y,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.4
+            ])
+            cylinder(h=3, r1=sizePiece/2.45, r2=sizePiece/2.6);
+
+            color(c)
+            translate([
+                x,
+                y,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45
+            ])
+            cylinder(h=2, r1=sizePiece/2.6, r2=sizePiece/2.7);
+
+            color(c)
+            translate([
+                x,
+                y,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 2
+            ])
+            cylinder(h=2, r1=sizePiece/2.7, r2=sizePiece/2.8);
+
+            color(c)
+            translate([
+                x,
+                y,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 4
+            ])
+            cylinder(h=2, r1=sizePiece/2.8, r2=sizePiece/3);
+
+            color(c)
+            translate([
+                x,
+                y - 0.5,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 6
+            ])
+            cylinder(h=2, r1=sizePiece/2.9, r2=sizePiece/3.1);
+
+            color(c)
+            translate([
+                x,
+                y - 1,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 8
+            ])
+            cylinder(h=2, r1=sizePiece/3, r2=sizePiece/3.2);
+
+            color(c)
+            translate([
+                x,
+                y - 1.2,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 10
+            ])
+            cylinder(h=2, r1=sizePiece/3.2, r2=sizePiece/3.4);
+
+            color(c)
+            translate([
+                x,
+                y - 1.5,
+                h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 12
+            ])
+            cylinder(h=8, r1=sizePiece/3.4, r2=sizePiece/4.1);
+
+            difference() {
+
+                color(c)
+                translate([
+                    x,
+                    y + 10,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 19
+                ])
+                rotate([-10, 0, 0])
+                cube([19, 40, 16], center=true);
+
+                color(c)
+                translate([
+                    x + 10,
+                    y + 24,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 31
+                ])
+                rotate([-5, 50, 0])
+                cube([30, 45, 16], center=true);
+
+                color(c)
+                translate([
+                    x - 10,
+                    y + 24,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 31
+                ])
+                rotate([-10, -50, 0])
+                cube([31, 45, 16], center=true);
+
+                color(c)
+                translate([
+                    x + 45,
+                    y + 24,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 31
+                ])
+                rotate([0, -40, 0])
+                cube([92, 45, 16], center=true);
+
+                color(c)
+                translate([
+                    x - 45,
+                    y + 24,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 31
+                ])
+                rotate([0, 40, 0])
+                cube([92, 45, 16], center=true);
+
+                color(c)
+                translate([
+                    x,
+                    y + 24,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 28
+                ])
+                rotate([-28, 0, 0])
+                cube([92, 45, 16], center=true);
+
+                color(c)
+                translate([
+                    x + 12,
+                    y + 36,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 28
+                ])
+                rotate([-13, 90, 0])
+                cube([92, 113, 16], center=true);
+
+                color(c)
+                translate([
+                    x - 12,
+                    y + 36,
+                    h + heightKnight + heightKnightNeck + heightKnightHead * 0.45 + 28
+                ])
+                rotate([13, 90, 0])
+                cube([92, 113, 16], center=true);
+            }
         }
     }
     // BISHOPS
@@ -152,9 +333,17 @@ for (i = [0 : 7]) {
                     translate([x, y, h + heightBishop + heightBishopNeck + heightBishopCrown * 0.95])
                     sphere(r=sizePiece / 10);
                 }
-                translate([x, y + 10, h + heightBishop + heightBishopNeck + heightBishopCrown * 0.5])
-                rotate([30, 0, 0])
-                cylinder(h=heightBishopSlit, r=sizePiece/2);
+                if (j < 4) {
+                    color(c)
+                    translate([x, y + 10, h + heightBishop + heightBishopNeck + heightBishopCrown * 0.5])
+                    rotate([30, 0, 0])
+                    cylinder(h=heightBishopSlit, r=sizePiece/2);
+                } else {
+                    color(c)
+                    translate([x, y - 10, h + heightBishop + heightBishopNeck + heightBishopCrown * 0.5])
+                    rotate([-30, 0, 0])
+                    cylinder(h=heightBishopSlit, r=sizePiece/2);
+                }
             }
         }
     }
